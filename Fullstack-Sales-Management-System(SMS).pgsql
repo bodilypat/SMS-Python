@@ -37,23 +37,11 @@ Fullstack-Sale-Management-System(SMS)
 │   │	│   ├── useAuth.js                                
 │   │	│   ├── useFetch.js                                                                  
 │   │   │   └── usePagination.js   
-│   │   ├── services/                                          
-│   │	│   ├── api.js                                         # Axios instance for FastAPI
-│   │	│   ├── authService.js                                
-│   │	│   ├── productService.js
-│   │	│   ├── categoriesService.js                     
-│   │	│   ├── saleService.js
-│   │	│   ├── purchaseService.js                         
-│   │	│   ├── customerService.js
-│   │	│   ├── supplierService.js
-│   │   │   └── reportService.js       
+│   │   ├── services/                                                                 
+│   │   │   └── api.js       
 │   │   ├── routes/
 │   │	│   ├── AppRoutes.jsx                                                                                
-│   │	│   ├── ProtectedRoute.jsx 
-│   │	│   ├── ProductRoutes.jsx
-│   │	│   ├── CategoryRoutes.jsx 
-│   │	│   ├── CustomerRoutes.jsx 
-│   │   │   └──                               
+│   │   │   └──  ProtectedRoute.js                             
 │   │   ├── utils/                                             
 │   │	│   ├── helper.js                                           
 │   │	│   ├── constants.js
@@ -69,7 +57,7 @@ Fullstack-Sale-Management-System(SMS)
 │   │   │   │   ├── services/
 │   │   │   │   ├── utils/
 │   │   │   │	└── index.js  
-│   │	│   ├── Dashboard/
+│   │	│   ├── dashboard/
 │   │   │   │   ├── components/
 │   │   │   │   │   ├── DashboardHeader.jsx                      # Page title and action buttons 
 │   │   │   │   │   ├── StatCard.jsx                             # KPI cards ( Revenue, Orders, Customer, Products)
@@ -101,27 +89,24 @@ Fullstack-Sale-Management-System(SMS)
 │   │   │   │   ├── components/
 │   │   │   │   │   ├── ProductActions.jsx                       # View, Edit, Delete buttons
 │   │   │   │   │   ├── ProductCard.jsx                          # Card layout for grid view
+│   │   │   │   │   ├── ProductDetailsCard.jsx
 │   │   │   │   │   ├── ProductFilter.jsx                        # Category and status filter
 │   │   │   │   │   ├── ProductForm.jsx                          # Shared form for add/edit product
+│   │   │   │   │   ├── ProductGallery.jsx
 │   │   │   │   │   ├── ProductImageUpload.jsx                   # Upload product images
-│   │   │   │   │   ├── ProductModal.jsx                         # Modal dialog
+│   │   │   │   │   ├── ProductPriceInfo.jsx
 │   │   │   │   │   ├── ProductSearchBar.jsx                     # Search by product name, SKU, or brand
 │   │   │   │   │   ├── ProductStatusBadge.jsx                   # Stock status indicator 
+│   │   │   │   │   ├── ProductStockInfo.jsx
 │   │   │   │   │   ├── ProductTable.jsx                         # Product data table    
-│   │   │   │   │   ├── DeleteProductDialog.jsx                  # Delete confirmation dialog  
-│   │   │   │   │   ├── ProductStatusBadge.jsx                   # Stock status indicator
-│   │   │   │   │   ├── ProductDetailsCard.jsx                   #     
-│   │   │   │   │   ├── ProductPriceInfo.jsx 
-│   │   │   │   │   ├── ProductStockInfo.jsx 
-│   │   │   │   │   ├── ProductGallery.jsx 
-│   │   │   │	│   └── index.js
+│   │   │   │	│   └── DeleteProductDialog.jsx                  # Delete confirmation dialog
 │   │   │   │	│
 │   │   │   │   ├── pages/
 │   │   │   │   │   ├── ProductList.jsx                          # Display all products with search, filters, sorting, and pagination
 │   │   │   │   │   ├── AddProduct.jsx                           # Create a new product  
 │   │   │   │   │   ├── EditProduct.jsx                          # Update an existing product 
-│   │   │   │   │   ├── productDetails.jsx                       # View detailed product information
-│   │   │   │	│   └── ProductStock.jsx                         # Manage stock quantities and inventory movement 
+│   │   │   │   │   ├── ProductDetails.jsx                       # View detailed product information
+│   │   │   │	│   └── ProductStockPage.jsx                     # Manage stock quantities and inventory movement 
 │   │   │   │   ├── hooks/
 │   │   │   │   │   ├── useProducts.js 
 │   │   │   │   │   ├── useProduct.js 
@@ -137,8 +122,8 @@ Fullstack-Sale-Management-System(SMS)
 │   │   │   │   │   ├── productValidation.js 
 │   │   │   │   │   ├── productHelpers.js
 │   │   │   │	│   └── formatCurrency.js
-│   │   │   │   ├── productsSelectors.js 
-│   │   │   │   ├── productConstants.js 
+│   │   │   │   ├── constants/
+│   │   │   │	│   └── productConstants.js 
 │   │   │   │	└── index.js 
 │   │   │   │
 │   │	│   ├── categories/
@@ -162,6 +147,8 @@ Fullstack-Sale-Management-System(SMS)
 │   │   │   │   ├── services/
 │   │   │   │	│   └── categoryApi.js 
 │   │   │   │   ├── store/
+│   │   │   │   │   ├── categoriesSlice.js 
+│   │   │   │   │   ├── categoriesSelector
 │   │   │   │	│   └── categoriesSlice.js 
 │   │   │   │   ├── categoriesSelectors.js
 │   │   │   │   ├── categoriesConstants.js 
@@ -238,15 +225,6 @@ Fullstack-Sale-Management-System(SMS)
 │   │   │   │	│   └── formatSupplier.js
 │   │   │   │	└── index.js 
 │   │   │   │
-│   │	│   ├── inventory/
-│   │   │   │   ├── pages/
-│   │   │   │   ├── components/
-│   │   │   │   ├── hooks/
-│   │   │   │   ├── store/
-│   │   │   │   ├── services/
-│   │   │   │   ├── utils/
-│   │   │   │	└── index.js 
-│   │   │   │
 │   │	│   ├── sales/
 │   │   │   │   ├── pages/
 │   │   │   │   ├── components/
@@ -256,7 +234,25 @@ Fullstack-Sale-Management-System(SMS)
 │   │   │   │   ├── utils/
 │   │   │   │	└── index.js 
 │   │   │   │
-│   │	│   ├── orders/
+│   │	│   ├── purchases/
+│   │   │   │   ├── pages/
+│   │   │   │   ├── components/
+│   │   │   │   ├── hooks/
+│   │   │   │   ├── store/
+│   │   │   │   ├── services/
+│   │   │   │   ├── utils/
+│   │   │   │	└── index.js 
+│   │   │   │
+│   │	│   ├── inventory/
+│   │   │   │   ├── pages/
+│   │   │   │   ├── components/
+│   │   │   │   ├── hooks/
+│   │   │   │   ├── store/
+│   │   │   │   ├── services/
+│   │   │   │   ├── utils/
+│   │   │   │	└── index.js 
+│   │   │   │
+│   │	│   ├── payments/
 │   │   │   │   ├── pages/
 │   │   │   │   ├── components/
 │   │   │   │   ├── hooks/
@@ -273,15 +269,6 @@ Fullstack-Sale-Management-System(SMS)
 │   │   │   │   ├── services/
 │   │   │   │   ├── utils/
 │   │   │   │	└── index.js 
-│   │	│   ├── employees/
-│   │   │   │   ├── pages/
-│   │   │   │   ├── components/
-│   │   │   │   ├── hooks/
-│   │   │   │   ├── store/
-│   │   │   │   ├── services/
-│   │   │   │   ├── utils/
-│   │   │   │	└── index.js 
-│   │   │   │
 │   │	│   ├── settings/
 │   │   │   │   ├── pages/
 │   │   │   │   ├── components/
@@ -307,15 +294,9 @@ Fullstack-Sale-Management-System(SMS)
 │   │   └── reportWebVitals.js                                       
 │   └──                     
 ├── static/                                                    # Optional static files
-├── .gitignore 
-└── README.md
-
-Teach Stack Options 
-Option B: Python Stack
-    => Frontend: React
-    => Backend: Django 
-    => Database: PostgreSQL
+│
 ├── backend(Python)
+│   │
 │   ├── app/
 │   │   ├── __init__.py                          
 │   │   ├── main.py                                           # FastAPI entry point
@@ -323,22 +304,28 @@ Option B: Python Stack
 │   │   │   ├── config.py
 │   │   │   ├── security.py
 │   │   │   ├── dependencies.py
+│   │   │   ├── logging.py
+│   │   │   ├── exceptions.py 
+│   │   │   ├── events.py 
 │   │   │   └── __init__.py
-│   │   ├── db/                          
-│   │   │   ├── base.py                                       # Base model
-│   │   │   ├── session.py                                    # DB session
-│   │   │   ├── init_db.py
-│   │   │   └── __init__.py
-│   │   ├── models/                                           # SQLAlchemy model
-│   │   │   ├── user.py
-│   │   │   ├── product.py
-│   │   │   ├── category.py
-│   │   │   ├── sale.py
-│   │   │   ├── sale_item.py
-│   │   │   ├── purchase.py
-│   │   │   ├── purchase_item.py
-│   │   │   ├── customer.py 
-│   │   │   └── supplier.py
+│   │   ├── api/                                             # Routes (instead of controllers + routes)
+│   │   │   ├── __init__.py
+│   │   │   ├── v1/
+│   │   │   │   ├── pages/
+│   │   │   │   ├── components/
+│   │   │   │   ├── hooks/
+│   │   │   │   ├── store/
+│   │   │   │   ├── services/
+│   │   │   │   ├── utils/
+│   │   │   │	└── index.js 
+│   │   │   ├── auth.py
+│   │   │   ├── products.py
+│   │   │   ├── categories.py
+│   │   │   ├── sales.py
+│   │   │   ├── purchases.py
+│   │   │   ├── customers.py
+│   │   │   ├── dashboard.py
+│   │   │   └── suppliers.py                                 # Combines all routes
 │   │   ├── schemas/                                          # Pydantic schemas
 │   │   │   ├── user.py
 │   │   │   ├── auth.py
@@ -349,16 +336,6 @@ Option B: Python Stack
 │   │   │   ├── customer.py
 │   │   │   ├── dashboard.py
 │   │   │   └── supplier.py
-│   │   ├── repositories/                                    # DB Logic Layer (Optional but clean)
-│   │   │   ├── user_repo.py
-│   │   │   ├── auth_repo.py
-│   │   │   ├── product_repo.py
-│   │   │   ├── category_repo.py
-│   │   │   ├── sale_repo.py
-│   │   │   ├── purchase_repo.py
-│   │   │   ├── customer_repo.py
-│   │   │   ├── 
-│   │   │   └── supplier_repo.py                        
 │   │   ├── services/                                        # Business logic
 │   │   │   ├── user_service.py
 │   │   │   ├── auth_service.py
@@ -369,16 +346,32 @@ Option B: Python Stack
 │   │   │   ├── customer_service.py
 │   │   │   ├── dashboard_service.py
 │   │   │   └── supplier_service.py
-│   │   ├── api/                                             # Routes (instead of controllers + routes)
-│   │   │   ├── deps.py
-│   │   │   ├── auth.py
-│   │   │   ├── products.py
-│   │   │   ├── categories.py
-│   │   │   ├── sales.py
-│   │   │   ├── purchases.py
-│   │   │   ├── customers.py
-│   │   │   ├── dashboard.py
-│   │   │   └── suppliers.py                                 # Combines all routes
+│   │   ├── repositories/                                    # DB Logic Layer (Optional but clean)
+│   │   │   ├── user_repo.py
+│   │   │   ├── auth_repo.py
+│   │   │   ├── product_repo.py
+│   │   │   ├── category_repo.py
+│   │   │   ├── sale_repo.py
+│   │   │   ├── purchase_repo.py
+│   │   │   ├── customer_repo.py
+│   │   │   ├── 
+│   │   │   └── supplier_repo.py                
+│   │   ├── models/                                           # SQLAlchemy model
+│   │   │   ├── user.py
+│   │   │   ├── product.py
+│   │   │   ├── category.py
+│   │   │   ├── sale.py
+│   │   │   ├── sale_item.py
+│   │   │   ├── purchase.py
+│   │   │   ├── purchase_item.py
+│   │   │   ├── customer.py 
+│   │   │   └── supplier.py        
+│   │   ├── database/                          
+│   │   │   ├── base.py                                       # Base model
+│   │   │   ├── session.py                                    # DB session
+│   │   │   ├── seed.py
+│   │   │   ├── init_db.py
+│   │   │   └── __init__.py
 │   │   ├── middlewares/                          
 │   │   │   ├── error_handler.py
 │   │   │   └── auth.py
