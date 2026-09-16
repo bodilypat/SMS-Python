@@ -70,17 +70,7 @@ function Login() {
 			/*
 			 * Authentication should be handled through the auth feature,
 			 * not directly inside the page.
-			 *
-			 * Example:
-			 *
-			 * const response = await login(formData);
-			 *
-			 * if (response.success) {
-			 *     navigate('/dashboard');
-			 * }
 			 */
-
-			// Temporary simulation.
 			await new Promise((resolve) => setTimeout(resolve, 800));
 
 			navigate('/dashboard');
